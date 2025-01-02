@@ -16,7 +16,9 @@ const useWeatherFetch = ({ city }: useWeatherFetchProps) => {
 				const resp = await fetch(
 					`https://api.openweathermap.org/data/2.5/weather?lat=${
 						city.lat
-					}&lon=${city.lon}&appid=${import.meta.env.VITE_WEATHER_API_KEY}`
+					}&lon=${city.lon}&units=metric&appid=${
+						import.meta.env.VITE_WEATHER_API_KEY
+					}`
 				)
 				if (!resp.ok) {
 					throw new Error(`Ошибка: ${resp.status}`)

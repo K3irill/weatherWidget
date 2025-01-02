@@ -4,6 +4,7 @@ import useWeatherFetch from './hooks/useWeatherFetch'
 import Header from './components/Header/Header'
 import { cityType } from './types/types'
 import 'primeicons/primeicons.css'
+import CurrentWeather from './components/CurrentWeather/CurrentWeather'
 
 const App = () => {
 	const [city, setCity] = useState<cityType>({ lat: '', lon: '', name: '' })
@@ -13,6 +14,9 @@ const App = () => {
 		<div className='app'>
 			<div className='main-section'>
 				<Header city={city} setCity={setCity} />
+				{weatherInfo && (
+					<CurrentWeather weatherInfo={weatherInfo}></CurrentWeather>
+				)}
 			</div>
 		</div>
 	)

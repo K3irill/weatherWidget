@@ -1,0 +1,21 @@
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.temp {
+	color: #fff;
+	font-size: 5rem;
+	font-weight: bold;
+	position: relative;
+	&::after {
+		content: '°';
+		position: absolute;
+		font-size: 2rem;
+		right: -10px;
+		color: #84b0f5;
+	}
+}
+.description {
+	color: #fff;
+}

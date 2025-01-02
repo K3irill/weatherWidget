@@ -1,6 +1,7 @@
 * {
 	margin: 0;
 	padding: 0;
+	font-family: 'Courier New', Courier, monospace;
 }
 body {
 	background-color: #000a18;
@@ -8,7 +9,8 @@ body {
 }
 
 .main-section {
-	background-color: #14aafe;
+	background: linear-gradient(to bottom, #14aafe, #1069f2);
+
 	padding: 15px;
 	border-radius: 0px 0px 20px 20px;
 	box-shadow: 0px 30px 50px #14a8fe32;
