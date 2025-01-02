@@ -3,6 +3,7 @@ import './styles/index.scss'
 import useWeatherFetch from './hooks/useWeatherFetch'
 import Header from './components/Header/Header'
 import { cityType } from './types/types'
+import 'primeicons/primeicons.css'
 
 const App = () => {
 	const [city, setCity] = useState<cityType>({ lat: '', lon: '', name: '' })

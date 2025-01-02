@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { cityType } from '../../types/types'
 import styles from './Header.module.scss'
+import IconButton from '../ui/IconButton/IconButton'
 
 type HeaderProps = {
 	city: cityType
@@ -39,17 +40,18 @@ const Header = ({ setCity, city }: HeaderProps) => {
 	return (
 		<div className={styles['header']}>
 			<nav className={styles['header__list']}>
-				<button>1</button>
+				<IconButton action={() => console.log()} piIcon='pi-info-circle' />
 				<div className={styles['header__input-wrapper']}>
 					<input
 						className={styles['header__city-input']}
 						value={inputCityValue}
 						onChange={e => setInputCityValue(e.target.value)}
 						type='text'
+						placeholder='Enter city'
 					/>
 					<button onClick={fetchCityCoordinates}>Get weather data</button>
 				</div>
-				<button>3</button>
+				<IconButton action={() => console.log()} piIcon='pi-ellipsis-v' />
 			</nav>
 		</div>
 	)
