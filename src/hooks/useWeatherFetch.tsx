@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react'
+import { cityType } from '../types/types'
 
 type useWeatherFetchProps = {
-	city: {
-		lat: string
-		lon: string
-	}
+	city: cityType
 }
 
 const useWeatherFetch = ({ city }: useWeatherFetchProps) => {
@@ -25,6 +23,7 @@ const useWeatherFetch = ({ city }: useWeatherFetchProps) => {
 				}
 				const data = await resp.json()
 				setWeatherInfo(data)
+				console.log(weatherInfo)
 			} catch (err) {
 				setError(err.message)
 			} finally {
@@ -34,7 +33,6 @@ const useWeatherFetch = ({ city }: useWeatherFetchProps) => {
 		if (city.lat && city.lon) {
 			setLoading(true)
 			getWeather()
-			console.log(weatherInfo)
 		}
 	}, [city])
 

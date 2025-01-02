@@ -1,0 +1,12 @@
+.header {
+	&__list {
+		display: flex;
+		align-items: start;
+		justify-content: space-between;
+	}
+	&__input-wrapper {
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
+	}
+}
