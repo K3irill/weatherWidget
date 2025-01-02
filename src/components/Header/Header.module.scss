@@ -7,14 +7,16 @@
 	&__input-wrapper {
 		display: flex;
 		flex-direction: column;
-		gap: 6px;
+		gap: 10px;
+
+		align-items: center;
 	}
 	&__city-input {
 		background: transparent;
 		border: none;
 		color: white;
-		font-weight: 500;
-		font-size: 18px;
+		font-weight: 700;
+		font-size: 22px;
 		text-align: center;
 	}
 }

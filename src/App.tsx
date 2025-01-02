@@ -12,7 +12,7 @@ const App = () => {
 	return (
 		<div className='app'>
 			<div className='main-section'>
-				<Header city={city} setCity={setCity}></Header>
+				<Header city={city} setCity={setCity} />
 			</div>
 		</div>
 	)

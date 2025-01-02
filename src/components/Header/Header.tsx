@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { cityType } from '../../types/types'
 import styles from './Header.module.scss'
 import IconButton from '../ui/IconButton/IconButton'
-
+import Button from '../ui/Button/Button'
 type HeaderProps = {
 	city: cityType
 	setCity: React.Dispatch<React.SetStateAction<cityType>>
@@ -49,7 +49,13 @@ const Header = ({ setCity, city }: HeaderProps) => {
 						type='text'
 						placeholder='Enter city'
 					/>
-					<button onClick={fetchCityCoordinates}>Get weather data</button>
+					<Button action={fetchCityCoordinates}>
+						<span
+							className='pi pi-circle-fill'
+							style={{ fontSize: '5px', color: 'yellow' }}
+						/>
+						Update
+					</Button>
 				</div>
 				<IconButton action={() => console.log()} piIcon='pi-ellipsis-v' />
 			</nav>
