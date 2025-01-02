@@ -2,6 +2,11 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	gap: 20px;
+	hr {
+		width: 90%;
+		opacity: 0.5;
+	}
 }
 .temp {
 	color: #fff;
@@ -18,4 +23,28 @@
 }
 .description {
 	color: #fff;
+}
+.main {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.extra {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 20px;
+	&__unit {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		p {
+			color: #75acfa;
+			font-weight: bolder;
+			font-size: 18px;
+		}
+		span {
+			color: #fff;
+		}
+	}
 }
