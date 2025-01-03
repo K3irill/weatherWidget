@@ -11,6 +11,41 @@ type HeaderProps = {
 const Header = ({ setCity, city }: HeaderProps) => {
 	const [inputCityValue, setInputCityValue] = useState<string>(city.name || '')
 
+	const getLocation = async () => {
+		if ('geolocation' in navigator) {
+			navigator.geolocation.getCurrentPosition(
+				async position => {
+					const lat = position.coords.latitude.toString()
+					const lon = position.coords.longitude.toString()
+
+					try {
+						const response = await fetch(
+							`https://api.openweathermap.org/geo/1.0/reverse?lat=${lat}&lon=${lon}&limit=1&appid=${
+								import.meta.env.VITE_WEATHER_API_KEY
+							}`
+						)
+						const data = await response.json()
+
+						if (data.length > 0) {
+							const cityName = data[0].name
+							setCity({ lat, lon, name: cityName })
+							setInputCityValue(cityName)
+						} else {
+							console.error('Город не найден по указанным координатам')
+						}
+					} catch (error) {
+						console.error('Ошибка получения названия города:', error)
+					}
+				},
+				err => {
+					console.error('Ошибка получения геолокации:', err.message)
+				}
+			)
+		} else {
+			console.error('Геолокация не поддерживается в этом браузере')
+		}
+	}
+
 	const fetchCityCoordinates = async () => {
 		if (!inputCityValue.trim()) {
 			alert('Введите название города')
@@ -40,7 +75,7 @@ const Header = ({ setCity, city }: HeaderProps) => {
 	return (
 		<div className={styles['header']}>
 			<nav className={styles['header__list']}>
-				<IconButton action={() => console.log()} piIcon='pi-info-circle' />
+				<IconButton action={() => getLocation()} piIcon='pi-map-marker' />
 				<div className={styles['header__input-wrapper']}>
 					<input
 						className={styles['header__city-input']}

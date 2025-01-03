@@ -1,12 +1,17 @@
-import { useEffect, useState } from 'react'
+import { SetStateAction, useEffect, useState } from 'react'
 import { cityType } from '../types/types'
 
 type useWeatherFetchProps = {
 	city: cityType
+	setCity: React.Dispatch<SetStateAction<cityType>>
 	requestType: string
 }
 
-const useWeatherFetch = ({ city, requestType }: useWeatherFetchProps) => {
+const useWeatherFetch = ({
+	city,
+	setCity,
+	requestType,
+}: useWeatherFetchProps) => {
 	const [weatherInfo, setWeatherInfo] = useState(null)
 	const [error, setError] = useState(null)
 	const [loading, setLoading] = useState(true)
