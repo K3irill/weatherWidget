@@ -54,7 +54,7 @@ const Header = ({ setCity, city }: HeaderProps) => {
 							className='pi pi-circle-fill'
 							style={{ fontSize: '5px', color: 'yellow' }}
 						/>
-						Update
+						{city.name ? 'Update' : 'Search'}
 					</Button>
 				</div>
 				<IconButton action={() => console.log()} piIcon='pi-ellipsis-v' />

@@ -3,9 +3,10 @@ import { cityType } from '../types/types'
 
 type useWeatherFetchProps = {
 	city: cityType
+	requestType: string
 }
 
-const useWeatherFetch = ({ city }: useWeatherFetchProps) => {
+const useWeatherFetch = ({ city, requestType }: useWeatherFetchProps) => {
 	const [weatherInfo, setWeatherInfo] = useState(null)
 	const [error, setError] = useState(null)
 	const [loading, setLoading] = useState(true)
@@ -14,7 +15,7 @@ const useWeatherFetch = ({ city }: useWeatherFetchProps) => {
 		async function getWeather() {
 			try {
 				const resp = await fetch(
-					`https://api.openweathermap.org/data/2.5/weather?lat=${
+					`https://api.openweathermap.org/data/2.5/${requestType}?lat=${
 						city.lat
 					}&lon=${city.lon}&units=metric&appid=${
 						import.meta.env.VITE_WEATHER_API_KEY
@@ -34,9 +35,10 @@ const useWeatherFetch = ({ city }: useWeatherFetchProps) => {
 		}
 		if (city.lat && city.lon) {
 			setLoading(true)
+			setWeatherInfo(null)
 			getWeather()
 		}
-	}, [city])
+	}, [city, requestType])
 
 	return { weatherInfo, loading, error }
 }

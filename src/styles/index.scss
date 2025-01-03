@@ -15,3 +15,15 @@ body {
 	border-radius: 0px 0px 20px 20px;
 	box-shadow: 0px 30px 50px #14a8fe32;
 }
+.extra-section {
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	button {
+		background: transparent;
+		color: #fff;
+		font-weight: bolder;
+		border: none;
+		font-size: 16px;
+	}
+}
